@@ -10,6 +10,9 @@ Principled BSDF node tree that has a global switch to export textures to common 
 
 ### Getting Started
 
+0. Get and install Blender 2.8x from here: 
+1. Check out [Using Blender Like Substance Designer](https://www.creativeshrimp.com/blender-substance-designer.html). first if you havent already
+
 This slider is your friend:
 
 ![An important Slider](https://media.giphy.com/media/MZGRMSlRaxgITXaxA9/giphy.gif)
