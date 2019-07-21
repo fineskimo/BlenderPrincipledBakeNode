@@ -10,3 +10,6 @@ Principled BSDF node tree that has a global switch to export textures to common 
 
 ### Getting Started
 
+This slider is your friend:
+
+![An important Slider](https://media.giphy.com/media/MZGRMSlRaxgITXaxA9/giphy.gif)
