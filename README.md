@@ -14,9 +14,11 @@ Principled BSDF node tree that has a global switch to export textures to common 
 1. Check out [Using Blender Like Substance Designer](https://www.creativeshrimp.com/blender-substance-designer.html). first if you havent already
 2. Download this github repository as zip and extract the _BlenderPrincipledBakeNode.blend_ Blender file. You do not need to open this file for now.
 3. Create a copy of your desired projects blendfile.
-4. Append the NodeTree. 
+4. Make sure, Color Management is set to Default for exporting the texture maps. (you can switch it back to filmic afterwards)
+5. Append the NodeTree. 
 
 ### Getting Started 
+0. Make sure, Color Management is set to Default for exporting the texture maps. 
 1. Append the NodeTree. 
 2. Switch all Principled BSDF shaders with the fresh appended Node Group.
 3. This Node is the most powerfull if you connect it to multiple materials.
