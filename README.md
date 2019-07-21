@@ -24,8 +24,8 @@ Principled BSDF node tree that has a global switch to export textures to common 
 1. Append the NodeTree. 
 2. Switch all Principled BSDF shaders with the fresh appended Node Group.
 __This is super simple and keeps your Old Connections intact__
-![Switch the Nodes from the Properties](https://media.giphy.com/media/MbKxYGVYmc8bkg4XEV/giphy.gif)
 
+![Switch the Nodes from the Properties](https://media.giphy.com/media/MbKxYGVYmc8bkg4XEV/giphy.gif)
 
 3. This Node is the most powerfull if you connect it to multiple materials.
 4. [Tab] into the NodeGroup and Select Your Desired Map to export with the Value Slider. 
