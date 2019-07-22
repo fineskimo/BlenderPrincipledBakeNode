@@ -22,9 +22,7 @@ __This is super simple and preserves the original connections__
 8. This Node Group is at its most powerful when connected to multiple materials.
 9. [Tab] into the Node Group and select the desired map to export using the Value slider. 
 
-This slider is your friend:
 
-![An Important Slider](https://media.giphy.com/media/MZGRMSlRaxgITXaxA9/giphy.gif)
 
 ### Getting Started 
 1. Ensure Color Management is set to "Standard" before exporting the texture maps. 
@@ -36,7 +34,3 @@ __This is super simple and preserves the original connections__
 
 4. This Node Group is at its most powerful when connected to multiple materials.
 5. [Tab] into the Node Group and select the desired map to export using the Value slider. 
-
-This slider is your friend:
-
-![An Important Slider](https://media.giphy.com/media/MZGRMSlRaxgITXaxA9/giphy.gif)
