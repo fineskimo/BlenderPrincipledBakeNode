@@ -23,6 +23,12 @@ bl_info = {
     'category': '3D View'
 }
 
+bpy.types.Scene.PBR_Imagesize = bpy.props.IntProperty(
+    name="resolution",
+    description="Final Texture Resolution",
+    min=256,
+    max=10240,
+    default=2048)
 
 
 class PBR_PT_panel(bpy.types.Panel):
@@ -35,8 +41,10 @@ class PBR_PT_panel(bpy.types.Panel):
     def draw(self, context):
         layout = self.layout
         row = layout.row()
+        row.label(text="Texture Resolution:")
+        row.prop(bpy.context.scene, "PBR_Imagesize", text="")
+        row = layout.row()
         row.operator("pbr_baker.magicbutton", emboss=True, text="Magic Button")
-
 
 
 class PBR_OT_magicbutton(bpy.types.Operator):
@@ -44,13 +52,20 @@ class PBR_OT_magicbutton(bpy.types.Operator):
     bl_idname = "pbr_baker.magicbutton"
     bl_label = "Magic Button"
 
-    # TODO Add polling to prevent errors for no object selected\materials\BPRnode
+    @classmethod
+    def poll(self, context):
+        if context.mode != 'OBJECT':
+            return False
+        if context.active_object.type == 'MESH':
+            return True
+        else:
+            return False
 
     def execute(self, context):
         ac_ob = context.active_object
         arm = ac_ob.data
 
-        imageResolution = 2048
+        imageResolution = bpy.context.scene.PBR_Imagesize
 
         bpy.context.scene.render.resolution_y = imageResolution
         bpy.context.scene.render.resolution_x = imageResolution
