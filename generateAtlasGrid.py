@@ -6,7 +6,7 @@ import bpy, math
 
 # @persistent
 # def update_material(scene):
-#    print("Material Upodated")
+#    print("Material Updated")
 
 # bpy.app.handlers.render_complete.append(update_material)
 
