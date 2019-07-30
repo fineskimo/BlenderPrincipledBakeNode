@@ -56,10 +56,9 @@ class PBR_OT_magicbutton(bpy.types.Operator):
     def poll(self, context):
         if context.mode != 'OBJECT':
             return False
-        if context.active_object.type == 'MESH':
-            return True
         else:
-            return False
+            return getattr(context.active_object, 'type', False) == 'MESH'
+
 
     def execute(self, context):
         ac_ob = context.active_object
