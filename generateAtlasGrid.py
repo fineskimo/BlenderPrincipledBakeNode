@@ -1,5 +1,7 @@
 import bpy, math
 
+scene = bpy.context.scene
+
 # an idea I had... just in case
 # from bpy.app.handlers import persistent
 
@@ -42,7 +44,7 @@ class PBR_PT_panel(bpy.types.Panel):
         layout = self.layout
         row = layout.row()
         row.label(text="Texture Resolution:")
-        row.prop(bpy.context.scene, "PBR_Imagesize", text="")
+        row.prop(scene, "PBR_Imagesize", text="")
         row = layout.row()
         row.operator("pbr_baker.magicbutton", emboss=True, text="Magic Button")
 
@@ -62,12 +64,13 @@ class PBR_OT_magicbutton(bpy.types.Operator):
 
     def execute(self, context):
         ac_ob = context.active_object
-        arm = ac_ob.data
+        name = ac_ob.name
 
-        imageResolution = bpy.context.scene.PBR_Imagesize
 
-        bpy.context.scene.render.resolution_y = imageResolution
-        bpy.context.scene.render.resolution_x = imageResolution
+        imageResolution = scene.PBR_Imagesize
+
+        scene.render.resolution_y = imageResolution
+        scene.render.resolution_x = imageResolution
 
         size = len(bpy.data.materials)
 
@@ -90,7 +93,9 @@ class PBR_OT_magicbutton(bpy.types.Operator):
         bpy.context.object.data.type = 'ORTHO'
         bpy.context.object.data.ortho_scale = cameraScale
         activeObject = bpy.context.active_object
-        bpy.context.scene.camera = activeObject
+        scene.camera = activeObject
+        scene.render.image_settings.file_format = 'PNG'
+        scene.render.filepath = f'/PBRBakerOutput\{name}'
 
         bpy.ops.render.render(animation=False, write_still=True, use_viewport=False, layer="", scene="")
 
